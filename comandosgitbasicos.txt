@@ -7,7 +7,13 @@ git remote add origin https://github.com/instrutorvilson/capgimeni.git
 
 git push -u origin main
 
+=====================================
+gerar chave ssh
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-
+
 ssh-keygen -t ed25519 -C "instrutorvilson@github.com"
+
+No github, conecta com o usuario, seleciona settings -> generate chave ssh.
 
 ===nosso dia a dia====
 git status -> verificar o status(o que está sendo rastreado)
