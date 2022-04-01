@@ -6,10 +6,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            margin: auto;
+            text-align: center;
+        }
+        
+        input {
+            width: 100%;
+            border-radius: 5px;
+            padding: 6px 3px 6px 3px;
+            margin-bottom: 5px;
+        }
+        
+        button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        label {
+            text-align: center;
+            color: red;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
+    <div>
+        <input type="text" id="nome" placeholder="Informe nome" />
+        <input type="text" id="sobreNome" placeholder="Informe sobrenome" />
+        <input type="number" id="idade" placeholder="informe sua idade" />
 
+        <hr />
+        <button onclick="ola()">Mostrar mensagem</button>
+        <label id="nomeCompleto"></label>
+    </div>
+    <script>
+        function ola() {
+            //Document Object Model
+            var nome = document.getElementById("nome")
+            if (nome.value == "") {
+                document.getElementById("nomeCompleto").innerHTML = "Informe nome";
+                nome.focus();
+                return;
+            }
+
+            var sobreNome = document.getElementById("sobreNome").value;
+            if (sobreNome == "") {
+                document.getElementById("nomeCompleto").innerHTML = "Informe sobrenome";
+                document.getElementById("sobreNome").focus();
+                return;
+            }
+
+            /* var idade = document.getElementById("idade").value;
+             var msg = nome.value + " " + sobreNome + " você tem " + idade + ", portanto vc é maior de idade";
+
+             if (idade < 18) {
+                 msg = nome.value + " " + sobreNome + " você tem " + idade + ", portanto vc é menor de idade";
+             }
+
+             document.getElementById("nomeCompleto").innerHTML = msg;
+             */
+
+            var idade = document.getElementById("idade").value;
+
+            if (idade == "") {
+                document.getElementById("nomeCompleto").innerHTML = "Informe a idade";
+                document.getElementById("idade").focus();
+                return;
+            }
+
+            var situacao = "maior";
+            if (idade < 18) {
+                situacao = "menor";
+            }
+            document.getElementById("nomeCompleto").innerHTML =
+                nome.value + " " + sobreNome + " você tem " + idade + " anos, portanto vc é " + situacao + " de idade";
+        }
+    </script>
 </body>
 
 </html>

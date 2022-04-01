@@ -1,6 +1,9 @@
 echo "# capgimeni" >> README.md
 git init
 git add README.md
+vilsonmoro@gmail.com
+
+
 git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/instrutorvilson/capgimeni.git
