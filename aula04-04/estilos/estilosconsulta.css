@@ -1,0 +1,18 @@
+table {
+    width: 400px;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: green;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: brown;
+}
+
+tbody tr:hover {
+    background-color: silver;
+}

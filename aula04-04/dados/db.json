@@ -1,0 +1,21 @@
+{
+    "contatos": [{
+            "id": 1,
+            "nome": "José da Silva",
+            "fone": "3395-1798",
+            "email": "jose@gmail.com"
+        },
+        {
+            "id": 2,
+            "nome": "Maria da Silva",
+            "fone": "3395-1798",
+            "email": "maria@gmail.com"
+        },
+        {
+            "id": 3,
+            "nome": "joao da Silva",
+            "fone": "3395-1798",
+            "email": "joao@gmail.com"
+        }
+    ]
+}

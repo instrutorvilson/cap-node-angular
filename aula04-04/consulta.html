@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta ...</title>
+    <link rel="stylesheet" href="estilos/estilosconsulta.css" />
+</head>
+
+<body onload="load()">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Fone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--O conteudo deste bloco será gerado pela função display-->
+        </tbody>
+    </table>
+
+    <script>
+        function load() {
+            fetch("http://localhost:3000/contatos")
+                .then(x => x.text())
+                .then(dados => display(dados))
+        }
+
+        function display(lista) {
+            let dados = JSON.parse(lista)
+            var trs = ""
+            for (let ob in dados) {
+                trs += "<tr>"
+                trs += "<td>" + dados[ob].id + "</td>"
+                trs += "<td>" + dados[ob].nome + "</td>"
+                trs += "<td>" + dados[ob].fone + "</td>"
+                trs += "<td>" + dados[ob].email + "</td>"
+                trs += "</tr>"
+            }
+            document.getElementsByTagName("tbody")[0].innerHTML = trs;
+        }
+    </script>
+</body>
+
+</html>
