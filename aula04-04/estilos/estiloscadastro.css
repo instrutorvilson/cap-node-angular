@@ -1,0 +1,34 @@
+div {
+    width: 300px;
+    margin: auto;
+}
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+}
+
+input[type=checkbox]:checked+label {
+    color: blue;
+    background-color: blueviolet;
+}
+
+input[type=checkbox]+label {
+    color: black;
+}
+
+ol {
+    list-style-type: none;
+}
+
+ol li {
+    display: inline;
+}
+
+select {
+    width: 100%;
+}
+
+button {
+    width: 100%;
+}

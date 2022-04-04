@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro ....</title>
+
+    <link rel="stylesheet" href="estilos/estiloscadastro.css" />
+    <script src="scripts/scriptscadastro.js"></script>
+
+</head>
+
+<body>
+    <div>
+        <form action="#" method="POST">
+            <label for="fidade">Nome</label>
+            <input type="text" placeholder="Informe nome" />
+            <input type="number" id="fidade" placeholder="Informe idade" min="0" max="100" />
+            <input type="email" placeholder="Informe email" />
+
+            <input type="date" />
+            <input type="datetime-local" />
+
+            <ol>
+                <li>
+                    <input type="checkbox" id="livros" />
+                    <label for="livros">Livros</label>
+                </li>
+                <li><input type="checkbox">Musicas</input>
+                </li>
+            </ol>
+
+            <input type="checkbox" id="comida" />
+            <label for="comida">Comida</label>
+
+            <input type="radio" name="genero" checked>Femenino</input>
+            <input type="radio" name="genero">Masculino</input>
+            <input type="password" placeholder="Informe senha" pattern="[0-9]{3}" />
+
+            <textarea cols="50" rows="10" style="resize:none">
+                
+            </textarea>
+
+            <select>
+                <option>Um</option>
+                <option>Dois</option>
+                <option>Três</option>
+            </select>
+
+            <select>
+                <option value="1">Açougue</option>
+                <option value="2">Frutas</option>
+                <option value="3">Verduras</option>
+            </select>
+
+            <img src="imagens/onca.jpg" alt="" width="100px" height="100px" />
+            <input type="file" placeholder="Informe a imagem" />
+        </form>
+        <button onclick="onSubmit()">Gravar</button>
+    </div>
+
+</body>
+
+</html>
