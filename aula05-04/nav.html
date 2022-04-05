@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 05/04</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        
+        nav {
+            background-color: silver;
+            padding: 10px;
+        }
+        
+        ol {
+            list-style-type: none;
+        }
+        
+        li {
+            display: inline;
+            background-color: blue;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        
+        li a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        li:hover {
+            background-color: white;
+        }
+        
+        li a:hover {
+            color: blue;
+        }
+        
+        .principal {
+            display: none;
+        }
+        
+        .container:hover .principal {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ol>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="consulta.html">Consulta</a></li>
+        </ol>
+
+    </nav>
+    <main>
+        <div class="container">
+            <button>Clique aqui</button>
+            <p class="principal">paragrafo</p>
+        </div>
+
+
+
+    </main>
+</body>
+
+</html>

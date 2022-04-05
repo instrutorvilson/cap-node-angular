@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 05/04</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        
+        nav {
+            background-color: silver;
+            padding: 10px;
+            z-index: 0;
+        }
+        
+        li.showcadastro {
+            display: inline-block
+        }
+        
+        .drop-content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+        }
+        
+        .drop-content a {
+            text-decoration: none;
+            display: block;
+        }
+        
+        li.showcadastro:hover .drop-content {
+            display: block;
+        }
+        
+        .showcadastro a {
+            background-color: blue;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        
+        .drop-content a {
+            background-color: red;
+            margin-top: 10px;
+        }
+        
+        .drop-content li {
+            list-style-type: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ol>
+            <li class="showcadastro">
+                <a>Cadastro</a>
+                <div class="drop-content">
+                    <a href="#">Cliente</a>
+                    <a href="#">Produto</a>
+                    <a href="#">Categoria</a>
+                </div>
+            </li>
+            <li class="showcadastro">
+                <a>Cadastro</a>
+                <div class="drop-content">
+                    <a href="#">Cliente</a>
+                    <a href="#">Produto</a>
+                    <a href="#">Categoria</a>
+                </div>
+            </li>
+
+            <li class="showcadastro">
+                <a>Cadastro</a>
+                <ol class="drop-content">
+                    <li><a href="#">Cliente</a></li>
+                </ol>
+            </li>
+        </ol>
+
+    </nav>
+
+
+    </main>
+</body>
+
+</html>
