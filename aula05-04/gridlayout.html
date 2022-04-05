@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout</title>
+    <style>
+        .grid-container {
+            display: grid;
+            background-color: blue;
+            grid-template-columns: 'auto auto auto auto';
+            grid-template-rows: 10% 80% 10%;
+        }
+        
+        .cabecalho {
+            background-color: aqua;
+            grid-column-start: 1;
+            grid-column-end: 5;
+        }
+        
+        .menulateral {
+            background-color: silver;
+            grid-row-start: 2;
+            grid-row-end: 5;
+        }
+        
+        .topo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="cabecalho">
+            <div class="topo">
+                <img src="" alt="logo" />
+                <h1>Sistema de vendas</h1>
+                <button>Login</button>
+            </div>
+        </div>
+
+        <div class="menulateral">2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+
+    </div>
+</body>
+
+</html>
