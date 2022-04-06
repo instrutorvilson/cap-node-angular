@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 300px;
+    margin: auto;
+    border: 1px solid red;
+    padding: 10px;
+}
+
+.form-control {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.salvar {
+    background-color: blue;
+    color: white;
+}
+
+.salvar:hover {
+    background-color: white;
+    color: blue;
+    border: 1px solid blue;
+}
+
+.cancelar {
+    background-color: red;
+    color: white;
+}
+
+.cancelar:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+}
+
+.btn {
+    padding: 5px;
+    border-radius: 8px;
+}
