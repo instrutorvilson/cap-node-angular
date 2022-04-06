@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro com validação javascript</title>
+    <style>
+        .container {
+            width: 300px;
+            margin: auto;
+        }
+        
+        input {
+            width: 100%;
+        }
+        
+        button {
+            margin-top: 10px;
+        }
+        
+        label span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="#">
+            <div>
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" placeholder="Informe nome" onblur="limpaMsgNome()" />
+                <label id="msgNome"></label>
+            </div>
+            <div>
+                <label for="nome">Fone</label>
+                <input type="text" id="fone" placeholder="Informe fone" />
+                <label id="msgFone"></label>
+            </div>
+        </form>
+        <div>
+            <button onclick="onSubmit()">Salvar</button>
+        </div>
+    </div>
+
+    <script>
+        function limpaMsgNome() {
+            var nome = document.getElementById("nome");
+            if (nome.value != "") {
+                document.getElementById("msgNome").innerHTML = "";
+            }
+        }
+
+        function onSubmit() {
+            var nome = document.getElementById("nome");
+            if (nome.value === "") {
+                document.getElementById("msgNome").innerHTML = "<span>Informe nome</span>";
+                nome.focus();
+                return;
+            }
+
+            var fone = document.getElementById("fone");
+            if (fone.value === "") {
+                document.getElementById("msgFone").innerHTML = "<span>Informe fone</span>";
+                fone.focus();
+                return;
+            }
+
+            document.getElementsByTagName("form")[0].submit();
+        }
+    </script>
+</body>
+
+</html>
