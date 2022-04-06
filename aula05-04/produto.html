@@ -8,8 +8,28 @@
     <title>Document</title>
 </head>
 
-<body>
+<body onload="loadCategoria()">
     <h1>Cadastro de produto</h1>
+    <select id="categoria">
+         <!--Carregado dinamicamente pela função display-->        
+    </select>
+
+    <script>
+        function loadCategoria() {
+            fetch("http://localhost:3000/categorias")
+                .then(x => x.text())
+                .then(cat => display(cat))
+        }
+
+        function display(dados) {
+            let lista = JSON.parse(dados)
+            var opt = ""
+            for (let ob in lista) {
+                opt += "<option var=" + lista[ob].id + ">" + lista[ob].nome + "</option>"
+            }
+            document.getElementById("categoria").innerHTML = opt;
+        }
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,20 @@
+{
+    "categorias": [{
+            "id": 1,
+            "nome": "Frutas"
+        },
+        {
+            "id": 2,
+            "nome": "Açougue"
+        },
+        {
+            "id": 3,
+            "nome": "Material de limpeza"
+        },
+        {
+            "id": 4,
+            "nome": "Bebidas"
+        }
+    ],
+    "produtos": []
+}
