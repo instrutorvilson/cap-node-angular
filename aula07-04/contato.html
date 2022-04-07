@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilizando tabela com bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+        tbody tr:hover {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body onload="loadContatos()">
+    <div class="container mb-5">
+        <div>
+            <form class="was-validated" novalidate>
+                <div>
+                    <label for="idnome" class="form-label">Nome</label>
+                    <input class="form-control" type="text" id="idnome" placeholder="Informe nome" required />
+                    <div class="invalid-feedback">
+                        Informe nome
+                    </div>
+                </div>
+                <div>
+                    <label for="idfone" class="form-label">Fone</label>
+                    <input class="form-control" type="text" id="idfone" pattern="\([0-9]){2}[0-9]{5}-[0-9]{4}$" placeholder="Informe fone" required />
+                    <div class="invalid-feedback">
+                        Informe fone
+                    </div>
+                </div>
+
+                <div>
+                    <label for="idemail" class="form-label">Email</label>
+                    <input class="form-control" type="text" id="idemail" placeholder="Informe email" required />
+                    <div class="invalid-feedback">
+                        Informe email
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <button onclick="salvar()" class="btn btn-primary">Salvar</button>
+                    <button type="reset" class="btn btn-danger">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead class="bg-success text-white">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Fone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--Dados serã preenchidos com a função display-->
+        </tbody>
+    </table>
+
+
+    <script>
+        function salvar() {
+            var contato = {
+                nome: document.getElementById("idnome").value,
+                fone: document.getElementById("idfone").value,
+                email: document.getElementById("idemail").value
+            }
+            fetch("http://localhost:3000/contatos", {
+                    method: "POST",
+                    body: JSON.stringify(contato),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(ct => ct.json())
+                .then(x => console.log(x))
+
+        }
+
+        function loadContatos() {
+            fetch("http://localhost:3000/contatos")
+                .then(x => x.text())
+                .then(data => display(data))
+        }
+
+        function display(lista) {
+            let listaJson = JSON.parse(lista)
+            var trs = "";
+            for (let indice in listaJson) {
+                trs += "<tr>"
+                trs += "<td>" + listaJson[indice].id + "</td>"
+                trs += "<td>" + listaJson[indice].nome + "</td>"
+                trs += "<td>" + listaJson[indice].fone + "</td>"
+                trs += "<td>" + listaJson[indice].email + "</td>"
+                trs += "</tr>"
+            }
+            document.getElementsByTagName("tbody")[0].innerHTML = trs
+        }
+    </script>
+</body>
+
+</html>
