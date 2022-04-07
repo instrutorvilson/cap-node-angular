@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body onload="load()">
+    <table class="table table-striped">
+        <thead class="bg-success">
+            <tr>
+                <td>Id</td>
+                <td>Descrição</td>
+                <td>Preço</td>
+                <td>Estoque</td>
+                <td>Categoria</td>
+                <td>Fornecedor</td>
+            </tr>
+        </thead>
+        <tbody>
+            <!--Dados carregados pelau função display-->
+        </tbody>
+    </table>
+    <script>
+        function load() {
+            fetch("http://localhost:3000/produtos")
+                .then(x => x.text())
+                .then(data => display(data))
+        }
+
+        function display(data) {
+            var trs = ""
+            var listaJson = JSON.parse(data)
+            for (let indice in listaJson) {
+                trs += "<tr>"
+                trs += "<td>" + listaJson[indice].id + "</td>"
+                trs += "<td>" + listaJson[indice].descricao + "</td>"
+                trs += "<td>" + listaJson[indice].preco + "</td>"
+                trs += "<td>" + listaJson[indice].estoque + "</td>"
+                trs += "<td>" + listaJson[indice].categoria + "</td>"
+                trs += "<td>" + listaJson[indice].fornecedor + "</td>"
+                trs += "</tr>"
+            }
+            document.getElementsByTagName("tbody")[0].innerHTML = trs;
+        }
+    </script>
+</body>
+
+</html>
