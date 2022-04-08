@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .botoes {
+            margin-top: 5px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 2px;
+        }
+        
+        .container {
+            padding: 15px 5px;
+            background-color: silver;
+            width: 160px;
+            margin: auto;
+            border-radius: 10px;
+        }
+        
+        button {
+            margin: 2px;
+            width: 35px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input style="margin-left:5px" type="text" id="display" />
+        <div class="botoes">
+            <button onclick="addDigito(this)">0</button>
+            <button onclick="addDigito(this)">1</button>
+            <button onclick="addDigito(this)">2</button>
+            <button onclick="addDigito(this)">3</button>
+            <button onclick="addDigito(this)">4</button>
+            <button onclick="addDigito(this)">5</button>
+            <button onclick="addDigito(this)">6</button>
+            <button onclick="addDigito(this)">7</button>
+            <button onclick="addDigito(this)">8</button>
+            <button onclick="addDigito(this)">9</button>
+
+            <button onclick="addDigito(this)">,</button>
+            <button style="background-color: red;" onclick="limpar()">C</button>
+
+            <button onclick="informarOperacao(this)">+</button>
+            <button onclick="informarOperacao(this)">-</button>
+            <button onclick="informarOperacao(this)">*</button>
+            <button onclick="informarOperacao(this)">/</button>
+
+            <button onclick="calcular()" style="width: 160px;background-color: blue;"> = </button>
+        </div>
+    </div>
+    <script>
+        var operacao = ""
+        var n1 = ""
+
+        function addDigito(dig) {
+            var valorDisplay = document.getElementById("display").value
+            document.getElementById("display").value = valorDisplay + dig.innerText;
+        }
+
+        function limpar() {
+            document.getElementById("display").value = ""
+            document.getElementById("display").focus()
+        }
+
+        function informarOperacao(op) {
+            n1 = document.getElementById("display").value
+            document.getElementById("display").value = ""
+            operacao = op.innerText
+        }
+
+        function calcular() {
+            var n2 = document.getElementById("display").value
+            var resultado = eval(`${n1}${operacao}${n2}`)
+            document.getElementById("display").value = resultado
+        }
+        /* 
+           eval("10+8")
+           eval("18-8")
+         */
+    </script>
+</body>
+
+</html>
