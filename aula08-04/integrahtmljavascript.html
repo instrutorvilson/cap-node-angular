@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="scripts/funcoes.js"></script>
+</head>
+
+<body>
+    <input type="text" placeholder="Informe nome" />
+    <input type="text" placeholder="Informe sobrenome" />
+    <input type="number" placeholder="Informe idade" />
+    <!--<button onclick="oi(document.getElementsByTagName('input')[0].value)">Ola</button>-->
+    <button onclick="ativaFuncao()">Ola</button>
+    <hr>
+    <label></label>
+    <script>
+        function ativaFuncao() {
+            var nome = document.getElementsByTagName("input")[0].value
+            var sobreNome = document.getElementsByTagName("input")[1].value
+            var idade = document.getElementsByTagName("input")[2].value
+            var nomeCompleto = montaNome(nome, sobreNome, idade);
+            document.getElementsByTagName("label")[0].innerHTML = nomeCompleto;
+        }
+    </script>
+</body>
+
+</html>
