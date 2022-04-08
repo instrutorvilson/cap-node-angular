@@ -32,7 +32,7 @@
 
 <body>
     <div class="container">
-        <input style="margin-left:5px" type="text" id="display" />
+        <input style="margin-left:5px" type="text" id="display" onkeydown="alert('0i')" />
         <div class="botoes">
             <button onclick="addDigito(this)">0</button>
             <button onclick="addDigito(this)">1</button>
@@ -45,7 +45,7 @@
             <button onclick="addDigito(this)">8</button>
             <button onclick="addDigito(this)">9</button>
 
-            <button onclick="addDigito(this)">,</button>
+            <button onclick="addDigito(this)">.</button>
             <button style="background-color: red;" onclick="limpar()">C</button>
 
             <button onclick="informarOperacao(this)">+</button>
