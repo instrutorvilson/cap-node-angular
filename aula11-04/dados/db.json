@@ -1,0 +1,31 @@
+{
+    "contatos": [{
+            "id": 1,
+            "nome": "Ana da Silva",
+            "fone": "123-4567",
+            "email": "ana@gmail.com",
+            "foto": "../imagens/homer.jpg"
+        },
+        {
+            "id": 2,
+            "nome": "Maria da Silva",
+            "fone": "123-4567",
+            "email": "maria@gmail.com",
+            "foto": "../imagens/homer.jpg"
+        },
+        {
+            "id": 3,
+            "nome": "José da Silva",
+            "fone": "123-4567",
+            "email": "jose@gmail.com",
+            "foto": "../imagens/homer.jpg"
+        },
+        {
+            "id": 4,
+            "nome": "Antonio da Silva",
+            "fone": "123-4567",
+            "email": "antonio@gmail.com",
+            "foto": "../imagens/homer.jpg"
+        }
+    ]
+}
