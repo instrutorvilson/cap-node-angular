@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Informe nome" />
+    <input type="password" placeholder="Informe senha" />
+    <button onclick="logar()">Logar</button>
+    <button onclick="window.location.href='outrapagina.html'">Outra pagina</button>
+
+    <script>
+        function logar() {
+            localStorage.setItem("usuario", document.getElementsByTagName("input")[0].value)
+            localStorage.setItem("password", document.getElementsByTagName("input")[1].value)
+
+            sessionStorage.setItem("usuario", document.getElementsByTagName("input")[0].value)
+        }
+    </script>
+</body>
+
+</html>
