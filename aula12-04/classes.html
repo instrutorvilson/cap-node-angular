@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label></label>
+    <script>
+        class Pessoa {
+            constructor(codigo, nome, idade, fone) {
+                this.codigo = codigo
+                this.nome = nome
+                this.idade = idade
+                this.fone = fone
+            }
+            display() {
+                document.getElementsByTagName("label")[0].innerHTML +=
+                    `${this.codigo} <br> ${this.nome} <br> ${this.idade} <br> ${this.fone} <hr>`;
+            }
+        }
+
+        let p1 = new Pessoa('10', 'Jose da Silva', '45', '123-4567');
+        let p2 = new Pessoa('12', 'Ana da Silva', '20', '123-4567');
+        let p3 = new Pessoa('13', 'Antonio da Silva', '20');
+
+        /*objeto não vinculado a classe Pessoa, embora tenha os mesmos atributos*/
+        var p4 = {
+            codigo: 14,
+            nome: 'Zezinho',
+            idade: 18,
+            fone: '123'
+        }
+
+        var p5 = {
+            codigo: 15,
+            nome: 'Luizinho'
+        }
+
+        var pessoas = [
+            p1,
+            p2,
+            p3,
+            p4,
+            p5
+        ]
+        for (let i in pessoas) {
+            pessoas[i].display()
+        }
+    </script>
+</body>
+
+</html>
