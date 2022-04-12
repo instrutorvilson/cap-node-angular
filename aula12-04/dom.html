@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .verde {
+            color: green
+        }
+        
+        .gremio {
+            color: blue;
+        }
+        
+        .colorado {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <!--Criar elementos filho no evento do botão-->
+    </div>
+    <button onclick="criar()">Criar</button>
+    <button onclick="ativarCss()">atribuir CSS</button>
+    <button onclick="pegarCss()">Mostrar CSS</button>
+
+    <script>
+        function criar() {
+            var parent = document.getElementsByTagName("div")[0];
+
+            var paragrafo = document.createElement("p")
+            paragrafo.innerHTML = "Saudações coloradas para todos"
+            paragrafo.className = "gremio"
+            parent.appendChild(paragrafo)
+
+            var listaFruta = document.createElement("ol")
+            listaFruta.innerHTML = "<li>Maça</li>"
+            listaFruta.innerHTML += "<li>Melancia</li>"
+            listaFruta.innerHTML += "<li>Mamao</li>"
+            listaFruta.setAttribute("class", "verde")
+            parent.appendChild(listaFruta)
+
+            var listaTarefas = document.createElement("ul")
+            var li = document.createElement("li")
+            li.style.color = "red"
+            li.innerHTML = "Roçar grama"
+            listaTarefas.appendChild(li)
+            parent.appendChild(listaTarefas)
+
+
+            var bt = document.createElement("button")
+            bt.innerHTML = "Ola"
+            bt.setAttribute("onclick", "alert('oi')")
+            parent.appendChild(bt)
+        }
+
+        function ativarCss() {
+            document.getElementsByTagName("p")[0].setAttribute("class", "colorado");
+        }
+
+        function pegarCss() {
+            var classeCss = document.getElementsByTagName("p")[0].getAttribute("class")
+            alert(classeCss)
+        }
+    </script>
+</body>
+
+</html>

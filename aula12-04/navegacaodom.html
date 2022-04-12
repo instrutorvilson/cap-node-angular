@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="ver()">ver</button>
+    <div>
+        <p>jhxajhxjia</p>
+        <input type="text" value="Ola mundo" />
+        <ol>
+            <li>Um</li>
+            <li>dois</li>
+            <li>Tres</li>
+            <li>
+                <ol id="listaInterna">
+                    <li>agora complicou</li>
+                </ol>
+            </li>
+        </ol>
+        <ul>
+            <li>Um</li>
+            <li>dois</li>
+            <li>Tres</li>
+        </ul>
+    </div>
+    <label></label>
+    <script>
+        function ver() {
+            var lista = document.getElementsByTagName("div")[0]
+                //document.getElementsByTagName("label")[0].innerHTML = lista.firstElementChild.innerHTML
+                // document.getElementsByTagName("label")[0].innerHTML = lista.children[2].children[0].innerHTML
+            document.getElementsByTagName("label")[0].innerHTML =
+                document.getElementById("listaInterna").children[0].setAttribute("class", "red")
+        }
+    </script>
+</body>
+
+</html>
