@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #sala button {
+            margin: 2px;
+        }
+        
+        .livre {
+            background-color: green;
+        }
+        
+        .ocupado {
+            background-color: red
+        }
+    </style>
+</head>
+
+<body>
+    <label for="total">Informe quantas cadeiras criar</label>
+    <input type="number" id="total" />
+    <button onclick="criarSala()">Criar sala</button>
+    <hr>
+    <div id="sala">
+        <!--Colocar botoes criados-->
+    </div>
+    <hr>
+    <label id="totalOcupacao"></label>
+    <script>
+        function criarSala() {
+            var sala = document.getElementById("sala")
+            sala.innerHTML = ""
+            var qtdeCadeiras = document.getElementById("total").value
+            for (let i = 1; i <= qtdeCadeiras; i++) {
+                bt = document.createElement("button")
+                bt.innerText = i
+                bt.className = "livre"
+                bt.setAttribute("onclick", "reservar(this)")
+                sala.appendChild(bt)
+            }
+            totalOcupacao()
+        }
+
+        function totalOcupacao() {
+            var x = document.getElementsByClassName("livre").length
+            var y = document.getElementsByClassName("ocupado").length
+            document.getElementById("totalOcupacao").innerHTML = `Total livres: ${x} 
+                                                                Total ocupados: ${y}`
+        }
+
+        function reservar(elemento) {
+            var classe = elemento.getAttribute("class")
+            if (classe === "livre") {
+                elemento.setAttribute("class", "ocupado")
+            } else {
+                elemento.setAttribute("class", "livre")
+            }
+            totalOcupacao()
+        }
+    </script>
+</body>
+
+</html>
