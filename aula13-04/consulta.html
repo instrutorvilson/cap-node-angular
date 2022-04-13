@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/classes.js"></script>
+    <link rel="stylesheet" href="./estilos/estilos.css" />
+</head>
+
+<body onload="load()">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Fone</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--dados carregados dinamicamente -->
+        </tbody>
+    </table>
+    <script>
+        function load() {
+            let ob = new Contato();
+            ob.consultarTodos(displayGeral);
+        }
+
+        function displayGeral(dados) {
+            let minhaLista = JSON.parse(dados)
+            var trs = ""
+            for (let indice in minhaLista) {
+                trs += `<tr> 
+                            <td> ${minhaLista[indice].id}</td>
+                            <td> ${minhaLista[indice].nome}</td>
+                            <td> ${minhaLista[indice].fone}</td>
+                            <td> ${minhaLista[indice].email}</td>
+                            <td> <a href='editar.html?id=${minhaLista[indice].id}'>editar</a></td>
+                        </tr>
+                      `
+            }
+            document.getElementsByTagName("tbody")[0].innerHTML = trs;
+        }
+    </script>
+</body>
+
+</html>

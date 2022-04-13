@@ -45,3 +45,32 @@ button {
     background-color: red;
     color: white;
 }
+
+table {
+    width: 400px;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: forestgreen;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: silver;
+}
+
+tbody tr:hover {
+    background-color: aqua;
+    color: red;
+}
+
+td {
+    padding: 5px;
+}
+
+th {
+    padding: 8px;
+    text-align: left;
+}

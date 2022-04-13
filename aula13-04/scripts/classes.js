@@ -18,4 +18,17 @@ class Contato {
             })
             .catch(erro => console.log(erro))
     }
+
+    consultarTodos(display) {
+        fetch(urlBase)
+            .then(x => x.text())
+            .then(data => display(data))
+    }
+
+    consultarPeloId(idcontato, display) {
+        fetch(`${urlBase}/${idcontato}`)
+            .then(x => x.text())
+            .then(data => display(data))
+    }
+
 }
