@@ -22,6 +22,7 @@
 
         <div class="botoes">
             <button onclick="gravar()" class="salvar">Salvar</button>
+            <button onclick="apagar()" class="salvar">Apagar</button>
             <button class="cancelar">Cancelar</button>
         </div>
     </div>
@@ -52,6 +53,15 @@
 
             let ob = new Contato(id, nome, fone, email)
             ob.update()
+        }
+
+        function apagar() {
+            let ob = new Contato();
+            ob.excluir(document.getElementsByTagName("input")[0].value)
+        }
+
+        function voltar() {
+            window.history.back()
         }
     </script>
 </body>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/classes.js"></script>
+</head>
+
+<body onload="pegarParametro()">
+    <label> Confirma a exclusão? </label>
+    <button onclick="excluir()">Excluir</button>
+    <script>
+        var idcontato = 0
+
+        function pegarParametro() {
+            const urlParams = new URLSearchParams(window.location.search)
+            idcontato = urlParams.get('id')
+        }
+
+        function excluir() {
+            let ob = new Contato()
+            ob.excluir(idcontato)
+        }
+    </script>
+
+</body>
+
+</html>
