@@ -43,6 +43,16 @@
             document.getElementsByTagName("input")[2].value = obj.fone
             document.getElementsByTagName("input")[3].value = obj.email
         }
+
+        function gravar() {
+            var id = document.getElementsByTagName("input")[0].value
+            var nome = document.getElementsByTagName("input")[1].value
+            var fone = document.getElementsByTagName("input")[2].value
+            var email = document.getElementsByTagName("input")[3].value
+
+            let ob = new Contato(id, nome, fone, email)
+            ob.update()
+        }
     </script>
 </body>
 
