@@ -1,20 +1,30 @@
 {
-    "categorias": [{
-            "id": 1,
-            "nome": "Frutas"
-        },
-        {
-            "id": 2,
-            "nome": "Açougue"
-        },
-        {
-            "id": 3,
-            "nome": "Material de limpeza"
-        },
-        {
-            "id": 4,
-            "nome": "Bebidas"
-        }
-    ],
-    "produtos": []
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "jose",
+      "foto": "./imagens/onca.jpg"
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "nome": "feewdw",
+      "foto": "http://127.0.0.1:5500/imagens/onca.jpg",
+      "id": 4
+    },
+    {
+      "nome": "feewdwrrrrrrrrrrrrrrrrr",
+      "foto": "http://127.0.0.1:5500/imagens/onca.jpg",
+      "id": 5
+    },
+    {
+      "nome": "teste sem form",
+      "foto": "http://127.0.0.1:5500/imagens/onca.jpg",
+      "id": 6
+    }
+  ]
 }

@@ -6,10 +6,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="estilos/estiloscliente.css" />
 </head>
 
 <body>
     <h1>Cadastro de cliente</h1>
+    <div class="container">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Informe nome" />
+        <!--<label for="fone">Fone</label>
+            <input type="text" id="fone" placeholder="Informe fone" />
+            <label for="email">Emaill</label>
+            <input type="email" id="email" placeholder="Informe email" />
+            -->
+        <input type="file" id="foto" value="ola.jpg" placeholder="Selecione uma foto" onchange="pegaImage()" />
+        <img src="" alt="Cadastro" width="100px" height="100px" />
+
+        <button onclick="salvar()">Salvar</button>
+        <button onclick="consultar()"> consultar</button>
+        <hr>
+        <div>
+            <label id="snome"></label>
+            <img id="sfoto" src="#" alt="mostrar apos consulta" />
+        </div>
+
+        <script>
+            function pegaImage(event) {
+                var foto = document.getElementById("foto")
+                var path = foto.value
+                var ot = path.substr(12, path.lenght);
+                document.getElementsByTagName("img")[0].src = `./imagens/${ot}`
+            }
+
+            function salvar() {
+                let ob = {
+                    nome: document.getElementById("nome").value,
+                    foto: document.getElementsByTagName("img")[0].src
+                }
+
+                fetch('http://localhost:3000/clientes', {
+                    method: 'POST',
+                    body: JSON.stringify(ob),
+                    headers: {
+                        'Content-Type': 'Application/json'
+                    }
+                }).catch(erro => console.log(erro))
+            }
+
+            function consultar() {
+                fetch('http://localhost:3000/clientes')
+                    .then(x => x.text())
+                    .then(data => display(data))
+            }
+
+            function display(data) {
+                let obj = JSON.parse(data)
+                document.getElementById("snome").innerHTML = obj[3].nome
+                document.getElementById("sfoto").src = obj[3].foto
+            }
+        </script>
+    </div>
 </body>
 
 </html>
