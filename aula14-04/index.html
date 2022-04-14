@@ -22,6 +22,10 @@
 <body>
     <div>
         <form method="get" action=".">
+            <label>Nome:
+                <input  type="text" id="nome" value=""/>
+            </label>
+
             <label>Cep:
                 <input  type="text" id="cep" value="" size="10" maxlength="9"
                     onblur="pesquisacep(this.value);" />
@@ -99,7 +103,24 @@
             }
 
             function salvar() {
-                ///
+                var cliente = {
+                    nome: document.getElementById("nome").value,
+                    cep: document.getElementById("cep").value,
+                    rua: document.getElementById("rua").value,
+                    numero: document.getElementById("numero").value,
+                    complemento: document.getElementById("complemento").value,
+                    bairro: document.getElementById("bairro").value,
+                    cidade: document.getElementById("cidade").value,
+                    uf: document.getElementById("uf").value
+                }
+
+                fetch("http://localhost:3000/clientes", {
+                    method: 'POST',
+                    body: JSON.stringify(cliente),
+                    headers: {
+                        'Content-Type': 'Application/json'
+                    }
+                })
             }
 
             function limpar() {

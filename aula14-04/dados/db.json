@@ -1,0 +1,15 @@
+{
+  "clientes": [
+    {
+      "nome": "JOse da Silva",
+      "cep": "78068-475",
+      "rua": "Rua Desembargador Cesarino Delfino César",
+      "numero": "300",
+      "complemento": "nada a declarar",
+      "bairro": "Boa Esperança",
+      "cidade": "Cuiabá",
+      "uf": "MT",
+      "id": 1
+    }
+  ]
+}
