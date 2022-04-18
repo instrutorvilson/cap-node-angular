@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Informe o cpf" />
+    <button onclick="validarPattern()">Comparar </button>
+
+    <input type="email" placeholder="Informe o email" />
+    <button onclick="validarPatternEmail()">Comparar </button>
+
+    <script>
+        function validarPattern() {
+            var cpf = document.getElementsByTagName("input")[0].value
+            var patternCpf = /[0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2}/;
+
+            let x = patternCpf.test(cpf)
+            console.log(x)
+        }
+
+        function validarPatternEmail() {
+            var email = document.getElementsByTagName("input")[1].value
+            var patternEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z](.[a-z]+)?/i
+
+            let x = patternEmail.test(email)
+            console.log(x)
+        }
+    </script>
+</body>
+
+</html>
