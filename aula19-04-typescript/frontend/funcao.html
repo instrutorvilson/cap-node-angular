@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../scripts/funcoes.js"></script>
+</head>
+
+<body>
+    <input type="number" placeholder="Informe numero" />
+    <input type="number" placeholder="Informe numero" />
+    <button onclick="calcular()">Calcular</button>
+    <hr>
+    <label></label>
+
+    <script>
+        function calcular() {
+            var n1 = parseInt(document.getElementsByTagName("input")[0].value)
+            var n2 = parseInt(document.getElementsByTagName("input")[1].value)
+            var retorno = soma(n1, n2)
+
+            document.getElementsByTagName("label")[0].innerHTML = retorno
+        }
+    </script>
+</body>
+
+</html>
