@@ -18,11 +18,27 @@
 
     <script>
         function calcular() {
-            var n1 = parseInt(document.getElementsByTagName("input")[0].value)
-            var n2 = parseInt(document.getElementsByTagName("input")[1].value)
-            var retorno = soma(n1, n2)
+            if (validarDados()) {
+                var n1 = Number(document.getElementsByTagName("input")[0].value)
+                var n2 = Number(document.getElementsByTagName("input")[1].value)
+                var retorno = soma(n1, n2)
+                document.getElementsByTagName("label")[0].innerHTML = retorno
+            }
+        }
 
-            document.getElementsByTagName("label")[0].innerHTML = retorno
+        function validarDados() {
+            if (document.getElementsByTagName("input")[0].value === '') {
+                document.getElementsByTagName("label")[0].innerHTML = "Informe valor"
+                document.getElementsByTagName("input")[0].focus()
+                return false;
+            }
+
+            if (document.getElementsByTagName("input")[1].value === '') {
+                document.getElementsByTagName("label")[0].innerHTML = "Informe valor"
+                document.getElementsByTagName("input")[1].focus()
+                return false;
+            }
+            return true
         }
     </script>
 </body>
