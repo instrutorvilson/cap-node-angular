@@ -1,4 +1,6 @@
-abstract class Pessoa{
+import { IDao } from "../interfaces/interfaces";
+
+abstract class Pessoa implements IDao{
     id: number;
     nome: string;
     contato: string;
@@ -10,6 +12,10 @@ abstract class Pessoa{
 
     /**métodos abstratos não podem ter implementtaçaõ */
     abstract salvar(): boolean;
+    abstract alterar(objeto: string): boolean;
+    abstract excluir(id: number): void;
+    abstract consultar(): string[];
+    abstract consultarPorId(id: number): string;
 
     display():string{
         return `Id: ${this.id} Nome: ${this.nome} Contato: ${this.contato}`
