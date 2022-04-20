@@ -1,6 +1,6 @@
 import { IDaoGenerica } from "./InterfaceGenerica";
 
-class Produto implements IDaoGenerica<Produto>{
+export default class Produto implements IDaoGenerica<Produto>{
     descricao: string;
     valorUnitario: number;
     estoque: number;
@@ -25,3 +25,4 @@ class Produto implements IDaoGenerica<Produto>{
         throw new Error("Method not implemented.");
     }
 }
+
