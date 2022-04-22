@@ -12,11 +12,17 @@
 <body>
     <button onclick="load()">Carregar</button>
     <button onclick="inserir()">gravar</button>
+    <button onclick="efetivarGravacaoItem()">gravar item</button>
     <script>
         function load() {
             let x = new ModelProduto();
-            x.consultarTodos(pegarTodos)
-                // x.consultarPorId(1, pegaProduto)
+            //  x.consultarTodos(pegarTodos)
+            x.consultarPorId(1, inserirItem)
+        }
+
+        function inserirItem(dados) {
+            let it = new Item(dados, dados.preco, 10);
+            //chama gravar item
         }
 
         function pegarTodos(dados) {
@@ -25,7 +31,17 @@
 
         function pegaProduto(dados) {
             console.log(dados)
+                // callback(dados)
         }
+
+        function efetivarGravacaoItem() {
+            let x = new ModelProduto();
+            //  x.consultarTodos(pegarTodos)
+            x.consultarPorId(1, inserirItem)
+
+        }
+
+
 
         function inserir() {
             /*controler*/
