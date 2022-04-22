@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../scripts/ControlProduto.js"></script>
+    <link rel="stylesheet" href="./estilos/estilos.css" />
 </head>
 
 <body onload="load()">
-    <div>
+    <div class="container">
         <table>
             <thead>
                 <tr>
@@ -25,10 +26,13 @@
                 <!--Preenchidos pela callbacz-->
             </tbody>
         </table>
+        <input type="text" placeholder="Informe seu nome" id="nomeCliente" />
+        <button onclick="FinalizarCarrinho()">Finalizar Carrinho</button>
     </div>
-    <button onclick="inserir()">gravar</button>
-    <button onclick="efetivarGravacaoItem()">gravar item</button>
+
     <script>
+        var carrinho = new Carrinho('22/04/2022', 'Navegante');
+
         function load() {
             let x = new ModelProduto();
             x.consultarTodos(displayTabela)
@@ -37,14 +41,32 @@
         function inserirItem(dados) {
             /*dados -> é o produto agregado ao item*/
             let it = new Item(dados, dados.preco, 1);
-            //chama gravar item
-            let modelItem = new ModelItem();
-            modelItem.salvar(it)
+            addItemCarrinho(it)
+                //chama gravar item
+                //let modelItem = new ModelItem();
+                //modelItem.salvar(it, addItemCarrinho)
         }
 
-        function efetivarGravacaoItem(idproduto) {
+        function efetivarGravacaoItem(idproduto, callback) {
             let x = new ModelProduto();
             x.consultarPorId(idproduto, inserirItem)
+        }
+
+        function FinalizarCarrinho() {
+            var nomeCliente = document.getElementById("nomeCliente")
+            if (nomeCliente.value === '') {
+                alert("informe nome do cliente")
+                nomeCliente.focus()
+                return;
+            }
+            carrinho.finalizado = true
+            carrinho.cliente = nomeCliente.value
+            let x = new ModelCarrinho()
+            x.salvar(carrinho)
+        }
+
+        function addItemCarrinho(item) {
+            carrinho.add(item)
         }
 
         function inserir() {

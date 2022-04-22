@@ -62,7 +62,7 @@ class Item {
 }
 
 /**Modelo Item */
-class ModelItem implements IDao<Item>{
+class ModelItem implements IDao<Item> {
     alterar(obj: Item): void {
         throw new Error("Method not implemented.");
     }
@@ -85,6 +85,52 @@ class ModelItem implements IDao<Item>{
                 }
             }
         )
+        .then(x => x.json())
+        .then(data => console.log(data))
     }
 }
 
+/**Carrinho de compras */
+class Carrinho{
+   itens: Item[]
+   data: string
+   cliente: string
+   finalizado: boolean 
+   constructor(data: string,cliente: string){
+       this.itens = []
+       this.data = data;
+       this.cliente = cliente
+       this.finalizado = false
+   }
+
+   add(it: Item){
+       this.itens.push(it)
+   }
+
+}
+class ModelCarrinho implements IDao<Carrinho> {
+    salvar(obj: Carrinho): void {
+        fetch("http://localhost:3000/carrinho",
+            {
+                method: 'POST',
+                body: JSON.stringify(obj),
+                headers:{
+                    'Content-type':'Application/json'
+                }
+            }
+        )
+    }
+    alterar(obj: Carrinho): void {
+        throw new Error("Method not implemented.");
+    }
+    excluir(id: number): void {
+        throw new Error("Method not implemented.");
+    }
+    consultarTodos(callback: (x: Carrinho[]) => {}): void {
+        throw new Error("Method not implemented.");
+    }
+    consultarPorId(id: number, callback: (x: Carrinho) => {}): void {
+        throw new Error("Method not implemented.");
+    }
+    
+}
