@@ -9,39 +9,43 @@
     <script src="../scripts/ControlProduto.js"></script>
 </head>
 
-<body>
-    <button onclick="load()">Carregar</button>
+<body onload="load()">
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--Preenchidos pela callbacz-->
+            </tbody>
+        </table>
+    </div>
     <button onclick="inserir()">gravar</button>
     <button onclick="efetivarGravacaoItem()">gravar item</button>
     <script>
         function load() {
             let x = new ModelProduto();
-            //  x.consultarTodos(pegarTodos)
-            x.consultarPorId(1, inserirItem)
+            x.consultarTodos(displayTabela)
         }
 
         function inserirItem(dados) {
-            let it = new Item(dados, dados.preco, 10);
+            /*dados -> é o produto agregado ao item*/
+            let it = new Item(dados, dados.preco, 1);
             //chama gravar item
+            let modelItem = new ModelItem();
+            modelItem.salvar(it)
         }
 
-        function pegarTodos(dados) {
-            console.log(dados)
-        }
-
-        function pegaProduto(dados) {
-            console.log(dados)
-                // callback(dados)
-        }
-
-        function efetivarGravacaoItem() {
+        function efetivarGravacaoItem(idproduto) {
             let x = new ModelProduto();
-            //  x.consultarTodos(pegarTodos)
-            x.consultarPorId(1, inserirItem)
-
+            x.consultarPorId(idproduto, inserirItem)
         }
-
-
 
         function inserir() {
             /*controler*/
@@ -53,6 +57,20 @@
                 /*Model -Acessa os dados onde estão armazenados ou envia da view para o db*/
             let x = new ModelProduto();
             x.salvar(obj);
+        }
+
+        function displayTabela(dados) {
+            let trs = ""
+            for (let indice in dados) {
+                trs += `<tr>
+                            <td>${dados[indice].id}</td>
+                            <td>${dados[indice].descricao}</td>
+                            <td>${dados[indice].preco}</td>
+                            <td>${dados[indice].estoque}</td>
+                            <td><button onclick=efetivarGravacaoItem(${dados[indice].id})>+</button></td>
+                        </tr>`
+            }
+            document.getElementsByTagName("tbody")[0].innerHTML = trs;
         }
     </script>
 </body>
