@@ -1,0 +1,15 @@
+<!--Interpolação-->
+<h1>{{ title }}</h1>
+<hr>
+<p> {{ nome }}</p>
+<p>{{ 1 + 1 }}</p>
+<p>Codigo do cliente: {{ cliente.id }}</p>
+<p>Codigo do cliente: {{ cliente.nome }}</p>
+
+<!--property bind-->
+<input [value]="nome" />
+
+<!--event bind-->
+<button (click)="trocar()">Clique aqui</button>
+<hr>
+<app-listas></app-listas>
