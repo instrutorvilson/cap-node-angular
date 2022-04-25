@@ -46,6 +46,8 @@
                     <!--Dados preenchidos dinamicamente-->
                 </tbody>
             </table>
+            <hr>
+            <label id="totalCarrinho">Total R$: </label>
         </div>
 
     </div>
@@ -86,8 +88,21 @@
         }
 
         function addItemCarrinho(item) {
-            carrinho.add(item)
+            if (!itemJaExiste(item)) {
+                carrinho.add(item)
+            }
             showCarrinho(carrinho)
+        }
+
+        function itemJaExiste(it) {
+            for (let i = 0; i < carrinho.itens.length; i++) {
+                if (it.produto.id == carrinho.itens[i].produto.id) {
+                    carrinho.itens[i].qtde += 1;
+                    // carrinho.itens[i].qtde =  carrinho.itens[i].qtde + 1
+                    return true;
+                }
+            }
+            return false;
         }
 
         function inserir() {
@@ -104,17 +119,20 @@
 
         function showCarrinho(dados) {
             let trs = '';
+            let soma = 0;
             for (let i = 0; i < dados.itens.length; i++) {
                 trs += ` 
                   <tr>
                     <td>${dados.itens[i].produto.descricao}</td>
                     <td>${dados.itens[i].precoItem}</td>
                     <td>${dados.itens[i].qtde}</td>
-                    <td>${dados.itens[i].qtde * dados.itens[i].precoItem}</td>
+                    <td>${(dados.itens[i].qtde * dados.itens[i].precoItem).toFixed(2)}</td>
                   </tr>
                 `
+                soma += (dados.itens[i].qtde * dados.itens[i].precoItem)
             }
             document.getElementById("itensCarrinho").innerHTML = trs;
+            document.getElementById("totalCarrinho").innerHTML = `Total R$: <span>${soma.toFixed(2)}</span>`
         }
 
         function displayTabela(dados) {
