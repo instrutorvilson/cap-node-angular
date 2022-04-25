@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+button {
+    width: 150px;
+    margin-right: 10px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.btsalva {
+    background-color: blue;
+    color: white;
+}
+
+.btsalva:hover {
+    background-color: white;
+    color: blue;
+}
+
+.btcancela {
+    background-color: orangered;
+    color: white;
+}
+
+.btcancela:hover {
+    background-color: white;
+    color: orangered;
+}
