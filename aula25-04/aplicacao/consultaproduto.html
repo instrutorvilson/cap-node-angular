@@ -140,7 +140,12 @@
         function removerItem(idproduto) {
             for (let i = 0; i < carrinho.itens.length; i++) {
                 if (idproduto == carrinho.itens[i].produto.id) {
-                    carrinho.itens.splice(i, 1)
+                    if (carrinho.itens[i].qtde == 1) {
+                        carrinho.itens.splice(i, 1)
+                    } else {
+                        carrinho.itens[i].qtde -= 1;
+                    }
+
                 }
             }
             showCarrinho(carrinho)
