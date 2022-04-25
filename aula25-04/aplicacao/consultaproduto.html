@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../scripts/ControlProduto.js"></script>
+    <link rel="stylesheet" href="./estilos/estilos.css" />
+</head>
+
+<body onload="load()">
+    <div class="container">
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Estoque</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="produtos">
+                    <!--Preenchidos pela callbacz-->
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <input type="text" placeholder="Informe seu nome" id="nomeCliente" />
+            <button onclick="FinalizarCarrinho()">Finalizar Carrinho</button>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>R$ Unitário</th>
+                        <th>Qtde</th>
+                        <td>Subtotal</td>
+                    </tr>
+                </thead>
+                <tbody id="itensCarrinho">
+                    <!--Dados preenchidos dinamicamente-->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        var carrinho = new Carrinho('22/04/2022', 'Navegante');
+
+        function load() {
+            let x = new ModelProduto();
+            x.consultarTodos(displayTabela)
+        }
+
+        function inserirItem(dados) {
+            /*dados -> é o produto agregado ao item*/
+            let it = new Item(dados, dados.preco, 1);
+            addItemCarrinho(it)
+                //chama gravar item
+                //let modelItem = new ModelItem();
+                //modelItem.salvar(it, addItemCarrinho)
+        }
+
+        function efetivarGravacaoItem(idproduto) {
+            let x = new ModelProduto();
+            x.consultarPorId(idproduto, inserirItem)
+        }
+
+        function FinalizarCarrinho() {
+            var nomeCliente = document.getElementById("nomeCliente")
+            if (nomeCliente.value === '') {
+                alert("informe nome do cliente")
+                nomeCliente.focus()
+                return;
+            }
+            carrinho.finalizado = true
+            carrinho.cliente = nomeCliente.value
+            let x = new ModelCarrinho()
+            x.salvar(carrinho)
+        }
+
+        function addItemCarrinho(item) {
+            carrinho.add(item)
+            showCarrinho(carrinho)
+        }
+
+        function inserir() {
+            /*controler*/
+            var obj = {
+                    descricao: 'farinha',
+                    preco: 10,
+                    estoque: 150
+                }
+                /*Model -Acessa os dados onde estão armazenados ou envia da view para o db*/
+            let x = new ModelProduto();
+            x.salvar(obj);
+        }
+
+        function showCarrinho(dados) {
+            let trs = '';
+            for (let i = 0; i < dados.itens.length; i++) {
+                trs += ` 
+                  <tr>
+                    <td>${dados.itens[i].produto.descricao}</td>
+                    <td>${dados.itens[i].precoItem}</td>
+                    <td>${dados.itens[i].qtde}</td>
+                    <td>${dados.itens[i].qtde * dados.itens[i].precoItem}</td>
+                  </tr>
+                `
+            }
+            document.getElementById("itensCarrinho").innerHTML = trs;
+        }
+
+        function displayTabela(dados) {
+            let trs = ""
+            for (let indice in dados) {
+                trs += `<tr>
+                            <td>${dados[indice].id}</td>
+                            <td>${dados[indice].descricao}</td>
+                            <td>${dados[indice].preco}</td>
+                            <td>${dados[indice].estoque}</td>
+                            <td><button onclick=efetivarGravacaoItem(${dados[indice].id})>+</button></td>
+                        </tr>`
+            }
+            document.getElementById("produtos").innerHTML = trs;
+        }
+    </script>
+</body>
+
+</html>
