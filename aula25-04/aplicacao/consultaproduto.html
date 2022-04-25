@@ -40,6 +40,7 @@
                         <th>R$ Unitário</th>
                         <th>Qtde</th>
                         <td>Subtotal</td>
+                        <td>Ações</td>
                     </tr>
                 </thead>
                 <tbody id="itensCarrinho">
@@ -127,12 +128,22 @@
                     <td>${dados.itens[i].precoItem}</td>
                     <td>${dados.itens[i].qtde}</td>
                     <td>${(dados.itens[i].qtde * dados.itens[i].precoItem).toFixed(2)}</td>
+                    <td><button onclick=removerItem(${dados.itens[i].produto.id})>-</button></td>
                   </tr>
                 `
                 soma += (dados.itens[i].qtde * dados.itens[i].precoItem)
             }
             document.getElementById("itensCarrinho").innerHTML = trs;
             document.getElementById("totalCarrinho").innerHTML = `Total R$: <span>${soma.toFixed(2)}</span>`
+        }
+
+        function removerItem(idproduto) {
+            for (let i = 0; i < carrinho.itens.length; i++) {
+                if (idproduto == carrinho.itens[i].produto.id) {
+                    carrinho.itens.splice(i, 1)
+                }
+            }
+            showCarrinho(carrinho)
         }
 
         function displayTabela(dados) {
