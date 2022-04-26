@@ -1,0 +1,23 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: blue;
+    color: white;
+}
+
+th {
+    padding: 5px;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: silver;
+}
+
+tbody tr:hover {
+    background-color: aqua;
+    color: red;
+}
