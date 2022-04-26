@@ -1,0 +1,19 @@
+nav {
+    background-color: blue;
+    padding: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    margin-right: 10px;
+    background-color: orange;
+    padding: 5px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: brown;
+}
+
+nav a:hover {
+    background-color: brown;
+    color: orange
+}
