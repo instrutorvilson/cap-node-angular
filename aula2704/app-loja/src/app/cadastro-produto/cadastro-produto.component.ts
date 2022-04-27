@@ -10,10 +10,11 @@ export class CadastroProdutoComponent implements OnInit {
  
   constructor(private serviceProduto: ProdutoService) { }
   msg: string = ""
+
   gravar(dados: any){
      this.serviceProduto.gravar(dados).subscribe(x => this.msg = "Produto criado com sucesso")
   }
-  
+    
   limparMsg(){
     this.msg = "";
   }

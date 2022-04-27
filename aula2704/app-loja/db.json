@@ -1,24 +1,37 @@
 {
-  "produtos": [
-    {
-      "descricao": "Feijão",
-      "preco": "10",
-      "estoque": "25",
-      "id": 1
-    },
-    {
-      "descricao": "Arroz",
-      "preco": "12.85",
-      "estoque": "45",
-      "id": 2
-    },
-    {
-      "descricao": "Trigo",
-      "preco": "12.55",
-      "estoque": "1000",
-      "id": 3
-    }
-  ],
-  "usuarios": [],
-  "carrinhos": []
+    "produtos": [{
+            "descricao": "Feijão",
+            "preco": "10",
+            "estoque": "25",
+            "id": 1
+        },
+        {
+            "descricao": "Arroz",
+            "preco": "12.85",
+            "estoque": "45",
+            "id": 2
+        },
+        {
+            "descricao": "Trigo",
+            "preco": "12.55",
+            "estoque": "1000",
+            "id": 3
+        }
+    ],
+    "usuarios": [{
+            "id": 1,
+            "nome": "Ana da Silva",
+            "email": "ana@gmail.com",
+            "senha": "123",
+            "perfil": "ADM"
+        },
+        {
+            "id": 2,
+            "nome": "Pedro da Silva",
+            "email": "pedro@gmail.com",
+            "senha": "123",
+            "perfil": "USUARIO"
+        }
+    ],
+    "carrinhos": []
 }
