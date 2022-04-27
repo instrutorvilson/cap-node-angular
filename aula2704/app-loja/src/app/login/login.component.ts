@@ -35,8 +35,13 @@ export class LoginComponent implements OnInit {
           this.usuarioConectado.email = dados[i].email
           this.usuarioConectado.senha = dados[i].senha
           this.usuarioConectado.perfil = dados[i].perfil
+          this.gravarDadosLocalStorage()
        }
      }
+  }
+  //simular authguard
+  gravarDadosLocalStorage(){
+    localStorage.setItem("userConectado", JSON.stringify(this.usuarioConectado))
   }
 
   ngOnInit(): void {
