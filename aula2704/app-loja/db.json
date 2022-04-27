@@ -16,6 +16,12 @@
             "preco": "12.55",
             "estoque": "1000",
             "id": 3
+        },
+        {
+            "descricao": "Arroza",
+            "preco": "12.55",
+            "estoque": "2",
+            "id": 4
         }
     ],
     "usuarios": [{

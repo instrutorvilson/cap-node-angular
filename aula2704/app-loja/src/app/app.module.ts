@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ConsultaProdutoComponent } from './consulta-produto/consulta-produto.component';
+import { EditaprodutoComponent } from './editaproduto/editaproduto.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     PagamentoComponent,
     CadastroUsuarioComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ConsultaProdutoComponent,
+    EditaprodutoComponent
   ],
   imports: [
     BrowserModule,

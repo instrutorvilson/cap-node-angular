@@ -13,4 +13,13 @@ export class ProdutoService {
     return this.http.post(url,dados)
   }
 
+  getAll(){
+    let url = 'http://localhost:3000/produtos'
+   return this.http.get(url)
+  }
+
+  getOne(idproduto: number){
+    return this.http.get(`http://localhost:3000/produtos/${idproduto}`)
+  }
+
 }
