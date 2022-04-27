@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>Cadastro de Produto</h1>
+    <form #f="ngForm" (ngSubmit)="gravar(f.value)">
+        <input class="form-control" type="text" ngModel name="descricao" placeholder="Informe descrição" />
+        <input class="form-control" type="text" ngModel name="preco" placeholder="Informe preco" />
+        <input class="form-control mb-3" type="text" ngModel name="estoque" placeholder="Informe estoque" />
+        <button class="btn btn-primary">Salvar</button>
+        <button (click)="limparMsg()" type="reset" class="btn btn-danger">Cancelar</button>
+    </form>
+    <label>{{ msg }}</label>
+</div>
