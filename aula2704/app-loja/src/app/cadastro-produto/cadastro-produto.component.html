@@ -2,8 +2,12 @@
     <h1>Cadastro de Produto</h1>
     <form #f="ngForm" (ngSubmit)="gravar(f.value)">
         <input required minlength="5" class="form-control" type="text" #fnome="ngModel" ngModel name="descricao" placeholder="Informe descrição" />
-        <div *ngIf="fnome.invalid" class="ng-invalid">
+        <div *ngIf="fnome.errors?.['required']" class="ng-invalid">
             Informe a descrição do produto
+        </div>
+
+        <div *ngIf="fnome.errors?.['minlength']" class="ng-invalid">
+            Informe no minimo 5 caracteres
         </div>
 
         <input required class="form-control" type="text" #fpreco="ngModel" ngModel name="preco" placeholder="Informe preco" />

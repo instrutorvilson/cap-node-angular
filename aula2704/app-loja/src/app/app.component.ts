@@ -13,10 +13,15 @@ export class AppComponent {
     if(user != null){
       user = JSON.parse(user)
       this.userLogado = user
-    }
+    }  
   }
   constructor(){
     this.pegarPerfilUsuarioConectado();
+  }
+
+  logout(){
+    localStorage.removeItem("userConectado")
+    window.location.reload()
   }
 
 }
