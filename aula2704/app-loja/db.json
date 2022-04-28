@@ -1,12 +1,6 @@
 {
   "produtos": [
     {
-      "descricao": "Feijão preto",
-      "preco": "10",
-      "estoque": "25",
-      "id": 1
-    },
-    {
       "descricao": "Arroz",
       "preco": "17.85",
       "estoque": "45",
@@ -17,18 +11,6 @@
       "preco": "12.55",
       "estoque": "10",
       "id": 3
-    },
-    {
-      "descricao": "Farinha de mandioca",
-      "preco": "12.55",
-      "estoque": "2",
-      "id": 4
-    },
-    {
-      "descricao": "cebola",
-      "preco": "1.50",
-      "estoque": "2",
-      "id": 5
     }
   ],
   "usuarios": [

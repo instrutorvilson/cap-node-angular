@@ -11,7 +11,7 @@ export class EditaprodutoComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private serviceProduto: ProdutoService) { }
-  produto: any;
+  produto: any = {};
 
   msg: string = "";
   
