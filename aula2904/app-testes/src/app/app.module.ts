@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
 import { ConsultaProdutoComponent } from './consulta-produto/consulta-produto.component';
+import { CamelCasePipe } from './camel-case.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroProdutoComponent,
-    ConsultaProdutoComponent
+    ConsultaProdutoComponent,
+    CamelCasePipe
   ],
   imports: [
     BrowserModule,

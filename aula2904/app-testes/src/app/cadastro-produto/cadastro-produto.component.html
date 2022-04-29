@@ -1,1 +1,17 @@
-<p>cadastro-produto works!</p>
+<p> {{ produto.descricao}} </p>
+<p> {{ produto.descricao | lowercase | uppercase }} </p>
+<p> {{ produto | json | uppercase }}</p>
+
+<p> {{ produto.preco | currency:'BRL':'symbol':'1.1-2' | lowercase}} </p>
+<p> {{ produto.estoque | number:'2.1-2' }} </p>
+
+<p>{{ hoje }}</p>
+<p>{{ hoje | date}}</p>
+<p>{{ hoje | date:'short' | lowercase}}</p>
+<p>{{ hoje | date:'M/d/YY'}}</p>
+<p>{{ hoje | date:'d/M/YYYY'}}</p>
+<p>{{ hoje | date:'HH:mm:ss'}}</p>
+<p> {{ hoje | date:'d/M' }}</p>
+<p> {{ hoje | date:'YYYY' }}</p>
+
+<p>{{ frase | camelCase}} </p>
