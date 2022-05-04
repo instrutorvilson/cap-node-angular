@@ -51,7 +51,24 @@ app.post('/usuario', (req, res) => {
             if (error) {
                 return res.status(403).send('Operação não permitida')
             }
-            res.status(201).send(result.rows)
+            res.status(201).send({
+                mensagem: 'criado com sucesso',
+                status: 201
+            })
+        })
+    })
+})
+
+app.get('/usuario', (req, res) => {
+    pool.connect((err, client) => {
+        if (err) {
+            res.status(401).send("Conexão não autorizada ")
+        }
+        client.query('select * from usuarios', (error, result) => {
+            if (error) {
+                return res.status(401).send('Operação não autorizada')
+            }
+            res.status(200).send(result.rows)
         })
     })
 })
