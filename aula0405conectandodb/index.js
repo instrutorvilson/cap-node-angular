@@ -46,14 +46,24 @@ app.post('/usuario', (req, res) => {
         if (err) {
             return res.status(401).send('Conexão não autorizada')
         }
-        var sql = 'insert into usuarios(email, senha, perfil) values ($1,$2,$3)'
-        client.query(sql, [req.body.email, req.body.senha, req.body.perfil], (error, result) => {
+        client.query('select * from usuarios where email = $1', [req.body.email], (error, result) => {
             if (error) {
-                return res.status(403).send('Operação não permitida')
+                return res.status(401).send('Operação não autorizada')
             }
-            res.status(201).send({
-                mensagem: 'criado com sucesso',
-                status: 201
+
+            if (result.rowCount > 0) {
+                return res.status(200).send('Registro já existe')
+            }
+
+            var sql = 'insert into usuarios(email, senha, perfil) values ($1,$2,$3)'
+            client.query(sql, [req.body.email, req.body.senha, req.body.perfil], (error, result) => {
+                if (error) {
+                    return res.status(403).send('Operação não permitida')
+                }
+                res.status(201).send({
+                    mensagem: 'criado com sucesso',
+                    status: 201
+                })
             })
         })
     })
