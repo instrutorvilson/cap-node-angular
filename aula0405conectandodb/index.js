@@ -72,7 +72,7 @@ app.post('/usuario', (req, res) => {
 app.get('/usuario', (req, res) => {
     pool.connect((err, client) => {
         if (err) {
-            res.status(401).send("Conexão não autorizada")
+            return res.status(401).send("Conexão não autorizada")
         }
         client.query('select * from usuarios', (error, result) => {
             if (error) {
@@ -83,6 +83,19 @@ app.get('/usuario', (req, res) => {
     })
 })
 
+app.get('/usuario/:email', (req, res) => {
+    pool.connect((err, client) => {
+        if (err) {
+            return res.status(401).send("Conexão não autorizada")
+        }
+        client.query('select * from usuarios where email = $1', [req.params.email], (error, result) => {
+            if (error) {
+                return res.status(401).send('operação não permitida')
+            }
+            res.status(200).send(result.rows[0]) /**[{},{}]*/
+        })
+    })
+})
 app.delete('/usuario/:email', (req, res) => {
     pool.connect((err, client) => {
         if (err) {
@@ -96,5 +109,8 @@ app.delete('/usuario/:email', (req, res) => {
         })
     })
 })
+
+
+
 
 app.listen(8081, () => console.log('aplicação em execução na url ht tp://localhost:8081'))
