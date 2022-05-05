@@ -96,6 +96,7 @@ app.get('/usuario/:email', (req, res) => {
         })
     })
 })
+
 app.delete('/usuario/:email', (req, res) => {
     pool.connect((err, client) => {
         if (err) {
@@ -106,6 +107,34 @@ app.delete('/usuario/:email', (req, res) => {
                 return res.status(401).send('operação não autorizada')
             }
             res.status(200).send({ message: 'registro excluido com sucesso' })
+        })
+    })
+})
+
+app.put('/usuario/:email', (req, res) => {
+    pool.connect((err, client) => {
+        if (err) {
+            return res.status(401).send("Conexão não autorizada")
+        }
+        client.query('select * from usuarios where email = $1', [req.params.email], (error, result) => {
+            if (error) {
+                return res.status(401).send("Operação não permitida")
+            }
+            /**update usuarios set senha=$1, perfil=$2 where email=$3 */
+            if (result.rowCount > 0) {
+                var sql = 'update usuarios set senha=$1, perfil=$2 where email=$3'
+                let valores = [req.body.senha, req.body.perfil, req.params.email]
+                client.query(sql, valores, (error2, result2) => {
+                    if (error2) {
+                        return res.status(401).send("Operação não permitida")
+                    }
+
+                    if (result2.rowCount > 0) {
+                        return res.status(200).send('registro alterado com sucesso')
+                    }
+                })
+            } else
+                res.status(200).send('usuario não encontrado')
         })
     })
 })
