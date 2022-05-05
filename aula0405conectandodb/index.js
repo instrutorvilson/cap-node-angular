@@ -3,9 +3,8 @@ const app = express()
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-
 var pg = require('pg')
-var consString = "postgres://vaaxwosutwatns:8997e0f6cbef74356d04198c9c52d3bf92611b167a0b8319846bed5dac75e9c3@ec2-107-22-238-112.compute-1.amazonaws.com:5432/d1unpjaoivanab"
+var consString = process.env.DATABASE_URL;
 
 const pool = new pg.Pool({ connectionString: consString, ssl: { rejectUnauthorized: false } })
 
@@ -139,7 +138,5 @@ app.put('/usuario/:email', (req, res) => {
     })
 })
 
-
-
-
-app.listen(8081, () => console.log('aplicação em execução na url ht tp://localhost:8081'))
+var porta = process.env.PORT;
+app.listen(porta, () => console.log(`http://localhost:${porta}`))
