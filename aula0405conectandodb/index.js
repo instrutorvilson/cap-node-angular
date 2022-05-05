@@ -138,5 +138,5 @@ app.put('/usuario/:email', (req, res) => {
     })
 })
 
-var porta = process.env.PORT;
-app.listen(porta, () => console.log(`http://localhost:${porta}`))
+
+app.listen(process.env.PORT || 8081, () => console.log(`http://localhost:8081`))
