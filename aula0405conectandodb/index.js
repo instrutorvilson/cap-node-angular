@@ -4,6 +4,9 @@ const app = express()
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 
+const cors = require('cors')
+app.use(cors())
+
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 var pg = require('pg')
