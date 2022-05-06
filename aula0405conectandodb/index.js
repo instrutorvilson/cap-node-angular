@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const bcrypt = require('bcrypt')
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
@@ -53,15 +54,22 @@ app.post('/usuario', (req, res) => {
             if (result.rowCount > 0) {
                 return res.status(200).send('Registro já existe')
             }
-
-            var sql = 'insert into usuarios(email, senha, perfil) values ($1,$2,$3)'
-            client.query(sql, [req.body.email, req.body.senha, req.body.perfil], (error, result) => {
+            bcrypt.hash(req.body.senha, 10, (error, hash) => {
                 if (error) {
-                    return res.status(403).send('Operação não permitida')
+                    return res.status(500).send({
+                        message: 'Erro de autenticação',
+                        erro: error.message
+                    })
                 }
-                res.status(201).send({
-                    mensagem: 'criado com sucesso',
-                    status: 201
+                var sql = 'insert into usuarios(email, senha, perfil) values ($1,$2,$3)'
+                client.query(sql, [req.body.email, hash, req.body.perfil], (error, result) => {
+                    if (error) {
+                        return res.status(403).send('Operação não permitida')
+                    }
+                    res.status(201).send({
+                        mensagem: 'criado com sucesso',
+                        status: 201
+                    })
                 })
             })
         })
