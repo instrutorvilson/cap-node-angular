@@ -8,6 +8,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 var pg = require('pg')
 var consString = process.env.DATABASE_URL;
+const login = require('./middleware/login')
 
 const pool = new pg.Pool({ connectionString: consString, ssl: { rejectUnauthorized: false } })
 
@@ -170,6 +171,10 @@ app.put('/usuario/:email', (req, res) => {
                 res.status(200).send('usuario não encontrado')
         })
     })
+})
+
+app.post('/produto', login, (req, res) => {
+    res.status(200).send('rota de inserção de produto')
 })
 
 
