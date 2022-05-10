@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ClienteService } from '../cliente.service';
 
 @Component({
   selector: 'app-consulta',
   templateUrl: './consulta.component.html',
-  styleUrls: ['./consulta.component.css']
+  styleUrls: []
 })
-export class ConsultaComponent implements OnInit {
+export class ConsultaComponent {
 
-  constructor() { }
+  listacliente: any = []
+  constructor(private clienteService: ClienteService) {
+    this.getTodos();
+   }
 
-  ngOnInit(): void {
+  getTodos(){
+    this.clienteService.getAll().subscribe(x => { 
+      this.listacliente = x
+      console.log(this.listacliente)
+    })
   }
 
 }

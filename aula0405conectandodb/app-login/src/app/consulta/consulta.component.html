@@ -1,1 +1,26 @@
-<p>consulta works!</p>
+<div class="container">
+    <h1>Consulta de clientes</h1>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cpf</th>
+                <th>Email</th>
+                <th>Fone</th>
+                <th>Genero</th>
+                <th>foto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of listacliente">
+                <td>{{ cliente.nome }}</td>
+                <td>{{ cliente.cpf }}</td>
+                <td>{{ cliente.email }}</td>
+                <td>{{ cliente.fone }}</td>
+                <td>{{ cliente.genero }}</td>
+                <td>{{ cliente.foto}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
