@@ -6,7 +6,7 @@ import { DecodeTokenService } from './decode-token.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthguardService implements CanActivate {
+export class AuthLogin implements CanActivate {
 
   constructor(private decodeToken: DecodeTokenService,
     private router: Router) { }

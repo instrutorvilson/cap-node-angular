@@ -8,13 +8,17 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { ConsultaComponent } from './consulta/consulta.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RelatorioVendasComponent } from './relatorio-vendas/relatorio-vendas.component';
+import { ErrosComponent } from './erros/erros.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CadastroComponent,
-    ConsultaComponent
+    ConsultaComponent,
+    RelatorioVendasComponent,
+    ErrosComponent
   ],
   imports: [
     BrowserModule,
