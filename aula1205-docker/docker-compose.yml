@@ -7,7 +7,17 @@ services:
       - 5000:8080
     volumes:
       - .:/home/node/app
-
+    depends_on:
+      - db
+    
+  db:
+    container_name: meubanco
+    image: postgres:12-alpine
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - 5432:5432
     
 
 
